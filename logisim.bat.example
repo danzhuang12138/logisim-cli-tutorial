@@ -1,0 +1,5 @@
+@echo off
+rem Logisim Evolution 启动脚本
+rem 用法: logisim.bat [file.circ]
+rem 把下面两个路径改成你自己的 JDK 和 logisim.jar 位置，然后重命名为 logisim.bat
+start "" "C:\path\to\jdk21\bin\javaw.exe" -jar "D:\EDA\logisim\logisim.jar" %*

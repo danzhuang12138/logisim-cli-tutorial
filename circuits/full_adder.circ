@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1.0" source="5.0.0">
+  <lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4"/>
+  <lib desc="#I/O" name="5"/>
+  <main name="main"/>
+  <circuit name="main">
+    <!-- inputs -->
+    <comp lib="0" loc="(140,140)" name="Pin">
+      <a name="facing" val="east"/>
+      <a name="output" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(140,220)" name="Pin">
+      <a name="facing" val="east"/>
+      <a name="output" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(140,300)" name="Pin">
+      <a name="facing" val="east"/>
+      <a name="output" val="false"/>
+      <a name="label" val="Cin"/>
+    </comp>
+    <!-- outputs -->
+    <comp lib="0" loc="(700,220)" name="Pin">
+      <a name="facing" val="east"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Sum"/>
+    </comp>
+    <comp lib="0" loc="(700,320)" name="Pin">
+      <a name="facing" val="east"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Cout"/>
+    </comp>
+    <!-- gates: loc = output terminal; XOR inputs are 10px further out than AND/OR -->
+    <comp lib="1" loc="(420,180)" name="XOR Gate">
+      <a name="facing" val="east"/>
+      <a name="size" val="50"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(600,220)" name="XOR Gate">
+      <a name="facing" val="east"/>
+      <a name="size" val="50"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(420,280)" name="AND Gate">
+      <a name="facing" val="east"/>
+      <a name="size" val="50"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(420,360)" name="AND Gate">
+      <a name="facing" val="east"/>
+      <a name="size" val="50"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(620,320)" name="OR Gate">
+      <a name="facing" val="east"/>
+      <a name="size" val="50"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <!-- A net: pin(140,140) -> XOR1.in1(360,160) & AND1.in1(370,340) -->
+    <wire from="(140,140)" to="(250,140)"/>
+    <wire from="(250,140)" to="(320,140)"/>
+    <wire from="(320,140)" to="(320,160)"/>
+    <wire from="(320,160)" to="(360,160)"/>
+    <wire from="(250,140)" to="(250,340)"/>
+    <wire from="(250,340)" to="(370,340)"/>
+    <!-- B net: pin(140,220) -> XOR1.in2(360,200) & AND1.in2(370,380) -->
+    <wire from="(140,220)" to="(300,220)"/>
+    <wire from="(300,220)" to="(300,200)"/>
+    <wire from="(300,200)" to="(360,200)"/>
+    <wire from="(300,220)" to="(300,380)"/>
+    <wire from="(300,380)" to="(370,380)"/>
+    <!-- Cin net: pin(140,300) -> AND2.in2(370,300) & XOR2.in2(540,240) -->
+    <wire from="(140,300)" to="(370,300)"/>
+    <wire from="(370,300)" to="(500,300)"/>
+    <wire from="(500,300)" to="(500,240)"/>
+    <wire from="(500,240)" to="(540,240)"/>
+    <!-- S1 net: XOR1 out(420,180) -> XOR2.in1(540,200) & AND2.in1(370,260) -->
+    <wire from="(420,180)" to="(480,180)"/>
+    <wire from="(480,180)" to="(480,200)"/>
+    <wire from="(480,200)" to="(540,200)"/>
+    <wire from="(480,180)" to="(480,260)"/>
+    <wire from="(480,260)" to="(370,260)"/>
+    <!-- P net: AND1 out(420,360) -> OR1.in2(570,340) -->
+    <wire from="(420,360)" to="(500,360)"/>
+    <wire from="(500,360)" to="(500,340)"/>
+    <wire from="(500,340)" to="(570,340)"/>
+    <!-- Q net: AND2 out(420,280) -> OR1.in1(570,300) -->
+    <wire from="(420,280)" to="(540,280)"/>
+    <wire from="(540,280)" to="(540,300)"/>
+    <wire from="(540,300)" to="(570,300)"/>
+    <!-- outputs -->
+    <wire from="(600,220)" to="(700,220)"/>
+    <wire from="(620,320)" to="(700,320)"/>
+  </circuit>
+</project>

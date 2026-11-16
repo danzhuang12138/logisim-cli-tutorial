@@ -1,0 +1,12 @@
+# 本地大文件：Logisim 主程序，读者请自行到官方 Releases 下载
+logisim.jar
+
+# 上游源码笔记（读源码用的 Java 文件，非本仓库作品）
+docs/
+
+# 机器相关的本地启动脚本（仓库提供 logisim.bat.example 模板）
+logisim.bat
+
+# 系统杂项
+Thumbs.db
+desktop.ini
